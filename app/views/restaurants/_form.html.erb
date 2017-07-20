@@ -1,0 +1,39 @@
+<hr>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="well">
+      <%= form_for(@restaurant) do |f| %>
+        <% if @restaurant.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+            <ul>
+            <% restaurant.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :street_address, "Street Address" %>
+          <%= f.text_field :street_address, class: 'form-control' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :zip_code, "Zip Code" %>
+          <%= f.text_field :zip_code, class: 'form-control', placeholder: 'i.e. 12345 or 12345-6789' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

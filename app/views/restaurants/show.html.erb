@@ -1,0 +1,10 @@
+<h1><%= @restaurant.name %></h1>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.street_address %>
+  <%= @restaurant.zip_code %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>

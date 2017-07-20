@@ -9,9 +9,11 @@ end
 gem 'rails', '~> 5.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
@@ -23,6 +25,7 @@ group :development, :test do
   gem 'factory_girl_rails' #'sample data' that populates your testing database before your tests run.
   gem 'guard-rspec' #works together with guard in order to run specs automatically
   gem 'guard'
+  gem 'rails-controller-testing' #test controllers
   gem 'faker' #generates 'fake' data which can be used for testing or development (seeds)
 end
 

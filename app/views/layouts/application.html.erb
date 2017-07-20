@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RestaurantMockup</title>
+    <title>Restaurant</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/header' %>
+    <%= render 'shared/flash_messages' %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
