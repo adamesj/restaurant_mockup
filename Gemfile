@@ -43,7 +43,7 @@ group :test do
   #is very useful for feature tests!
   gem 'launchy'
   gem 'database_cleaner' #cleans data from database when you run your specs
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.13' #helps to test your web app by simulating how a user would interact with the app
   gem 'selenium-webdriver' #can test JavaScript-based browser interactions with Capybara.
   gem 'shoulda-matchers', '~> 3.1' #one-liners that test common Rails functionality.
 end
