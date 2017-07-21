@@ -2,31 +2,31 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   
-  def favorite
-    @restaurant = Restaurant.find(params[:id])
-    type = params[:type]
-    if type == "favorite"
-      current_user.favorites << @restaurant
-      redirect_to :back, notice: "You favorited #{@restaurant.name}"
-
-    elsif type == "unfavorite"
-      current_user.favorites.delete(@restaurant)
-      redirect_to :back, notice: "Unfavorited #{@restaurant.name}"
-
-    else
-      # Type missing, nothing happens
-      redirect_to :back, notice: 'Nothing happened.'
-    end
-  end
+  # def favorite
+  #   @restaurant = Restaurant.find(params[:id])
+  #   type = params[:type]
+  #   if type == "favorite"
+  #     current_user.favorites << @restaurant
+  #     redirect_to :back, notice: "You favorited #{@restaurant.name}"
+  #
+  #   elsif type == "unfavorite"
+  #     current_user.favorites.delete(@restaurant)
+  #     redirect_to :back, notice: "Unfavorited #{@restaurant.name}"
+  #
+  #   else
+  #     # Type missing, nothing happens
+  #     redirect_to :back, notice: 'Nothing happened.'
+  #   end
+  # end
 
   def index
     @restaurants = Restaurant.all
-    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
-      restaurant_path = view_context.link_to restaurant.name, restaurant_path(restaurant)
-      marker.lat restaurant.latitude
-      marker.lng restaurant.longitude
-      marker.infowindow "<b>#{restaurant_path}</b>"
-    end
+    # @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+    #   restaurant_path = view_context.link_to restaurant.name, restaurant_path(restaurant)
+    #   marker.lat restaurant.latitude
+    #   marker.lng restaurant.longitude
+    #   marker.infowindow "<b>#{restaurant_path}</b>"
+    # end
   end
 
   def new
