@@ -1,0 +1,23 @@
+<p>
+  <strong>Party:</strong>
+  <%= reservation.party %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= reservation.message %>
+</p>
+
+<p>
+  <strong>Date / Time:</strong>
+  <%= reservation.reservation_date.strftime("%B %d at %I:%M %p") %>
+</p>
+
+<br>
+<hr>
+
+<% if signed_in? && current_user.owner? %>
+  <p>
+    <%= link_to 'Remove Reservation', [reservation.restaurant, reservation], method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
