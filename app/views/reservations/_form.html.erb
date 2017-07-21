@@ -1,27 +1,21 @@
-<%= form_with(model: reservation, local: true) do |form| %>
-  <% if reservation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+<%= form_for([@restaurant, @restaurant.reservations.build]) do |f| %>
+  <p>
+    <%= f.label :message %><br>
+    <%= f.text_area :message, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.label :party %><br>
+    <%= f.select :party, options_for_select(1..10), { prompt: "0" } %>
+  </p>
+  <p>
+    <strong>Date and Time:</strong><br>
+    <span class="datetime"><%= f.datetime_select :reservation_date , ampm: true , :discard_year => true, :discard_minute => true, :class => "form-control"%><span/>
+  </p>
 
-      <ul>
-      <% reservation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= flash[:recaptcha_error] %>
+  <%= recaptcha_tags %>
 
-  <div class="field">
-    <%= form.label :party %>
-    <%= form.number_field :party, id: :reservation_party %>
-  </div>
-
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_area :message, id: :reservation_message %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p>
+    <%= f.submit %>
+  </p>
 <% end %>
