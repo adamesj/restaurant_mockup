@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   # def favorite
   #   @restaurant = Restaurant.find(params[:id])
   #   type = params[:type]
@@ -44,7 +44,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.includes(:categories).find(params[:id])
-    @restaurant.favorited_by
   end
 
   def edit
